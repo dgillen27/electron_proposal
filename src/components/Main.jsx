@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 function Main() {
   return (
     <div>
-      <h1>Main</h1>
-      <Link to='/vid/'>videos</Link>
+      <div className="text-wrapper">
+        <Link to='/vid/'>Go To Videos</Link>
+      </div>
     </div>
   )
 }

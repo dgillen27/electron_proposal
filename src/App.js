@@ -19,7 +19,7 @@ function App() {
       <animated.div key={key} style={props}>
         <Switch location={item}>
           <Route path='/' exact component={Main} />
-          <Route path='/vid/' component={VideoPage} />
+          <Route path='/vid' component={VideoPage} />
         </Switch>
       </animated.div>
     </div>
