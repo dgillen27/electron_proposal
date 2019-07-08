@@ -1,8 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function VideoPage() {
+function VideoPage({ content }) {
   return (
-    <h1>VideoPage</h1>
+    <div>
+      <h1>Video page</h1>
+      <Link to='/'>No more videos</Link>
+    </div>
   )
 }
 
