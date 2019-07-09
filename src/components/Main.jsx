@@ -6,7 +6,7 @@ function Main() {
   return (
     <div>
       <div className="text-wrapper">
-        <Link to='/vid/'>Go To Videos</Link>
+        <Link to='/select/'>Go To Selection</Link>
       </div>
     </div>
   )

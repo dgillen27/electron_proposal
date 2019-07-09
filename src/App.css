@@ -326,3 +326,16 @@ a:active {
     opacity: 1;
   }
 }
+
+.boxHolder {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.box {
+  height: 500px;
+  width: 100px;
+  background-color: blue;
+}

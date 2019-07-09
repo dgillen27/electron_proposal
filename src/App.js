@@ -5,6 +5,7 @@ import Main from './components/Main'
 import { Route, Switch } from 'react-router-dom'
 import useRouter from './useRouter.js'
 import { useTransition, animated } from 'react-spring'
+import SelectionPage from './components/SelectionPage'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <animated.div key={key} style={props}>
         <Switch location={item}>
           <Route path='/' exact component={Main} />
+          <Route path='/select' component={SelectionPage}/>
           <Route path='/vid' component={VideoPage} />
         </Switch>
       </animated.div>
