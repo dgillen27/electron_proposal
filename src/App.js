@@ -10,16 +10,16 @@ import { useTransition, animated } from 'react-spring'
 function App() {
   const { location } = useRouter();
   const transitions = useTransition(location, location => location.pathname, {
-    from: { opacity: 0, transform: 'translate3d(100%, 0, 0)' },
+    from: { opacity: 0, transform: 'translate3d(50%, 0, 0)' },
     enter: { opacity: 1, transform: 'translate3d(0%, 0, 0)' },
     leave: { opacity: 0, transform: 'translate3d(-50%, 0, 0)' },
-  })
+})
   return transitions.map(({ item, props, key }) => (
     <div className="App">
       <animated.div key={key} style={props}>
         <Switch location={item}>
           <Route path='/' exact component={Main} />
-          <Route path='/vid/' component={VideoPage} />
+          <Route path='/vid' component={VideoPage} />
         </Switch>
       </animated.div>
     </div>

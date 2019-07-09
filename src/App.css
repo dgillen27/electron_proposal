@@ -62,3 +62,267 @@ a:active {
   color: rgb(67, 191, 253);
   cursor: pointer;
 }
+
+.text-wrapper {
+  font-family: 'Merriweather', serif;
+  border: 2px solid transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text-wrapper a {
+  position: relative;
+  color: #6849e3;
+  /* color: var(--light-red); */
+  font-size: 4rem;
+  transition: 300ms;
+  letter-spacing: 15px;
+  display: inline-block;
+  animation: spacing 1000ms linear;
+  animation-fill-mode: forwards;
+  animation-delay: 700ms;
+  text-decoration: none;
+}
+
+.text-wrapper a:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.text-wrapper a:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.text-wrapper a:after {
+  animation: bottom-animation 1000ms linear;
+  animation-fill-mode: forwards;
+  animation-delay: 700ms;
+}
+
+.text-wrapper a:before {
+  animation: border-animation 1000ms linear;
+  animation-fill-mode: forwards;
+  animation-delay: 700ms;
+}
+
+.text-wrapper a:hover {
+  cursor: pointer;
+}
+
+@keyframes spacing {
+  from {
+    letter-spacing: 15px;
+  }
+
+  to {
+    letter-spacing: 2px;
+    color: rgb(67, 191, 253);
+  }
+}
+
+@keyframes border-animation {
+
+  0% {
+    width: 0;
+    height: 100%;
+    border-top-color: transparent;
+    border-bottom-color: transparent
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+    border-top-color:rgb(67, 191, 253);
+    /* border-top-color: var(--light-red); */
+    /* border-bottom-color: #6849e3; */
+  }
+}
+
+@keyframes bottom-animation {
+
+  0% {
+    width: 0;
+    height: 100%;
+    border-top-color: transparent;
+    border-bottom-color: transparent
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+    /* border-top-color: #6849e3; */
+    border-bottom-color: rgb(67, 191, 253);
+    /* border-bottom-color: var(--light-red); */
+  }
+}
+
+.video-page {
+  height: 675px;
+  width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(16, 75px);
+  grid-template-rows: repeat(9, 75px);
+}
+
+.vertical-one {
+  height: 675px;
+  width: 75px;
+  background: blue;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  /* animation: slide-down 500ms linear; */
+  animation-delay: 500ms;
+  /* opacity: 0; */
+  animation-fill-mode: forwards;
+}
+
+.blue-square {
+  height: 75px;
+  width: 75px;
+  background: blue;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  /* animation: slide-down 500ms linear; */
+  animation-delay: 500ms;
+  /* opacity: 0; */
+  animation-fill-mode: forwards;
+  z-index: 15;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.horizontal-one {
+  width: 1200px;
+  background: green;
+  height: 75px;
+  grid-column-start: 1;
+  grid-row-start: 9;
+  z-index: 1;
+  /* opacity: 0; */
+  /* animation: slide-right 500ms linear; */
+  animation-delay: 1000ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.vertical-two {
+  height: 675px;
+  width: 75px;
+  background: yellow;
+  grid-column-start: 16;
+  grid-row-start: 1;
+  /* opacity: 0; */
+  /* animation: slide-up 500ms linear; */
+  animation-delay: 1500ms;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.horizontal-two {
+  width: 1200px;
+  background: red;
+  height: 75px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  z-index: 3;
+  /* opacity: 0; */
+  /* animation: slide-left 500ms linear; */
+  animation-delay: 2000ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(200%);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.video {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  animation: make-visible 500ms linear;
+}
+
+.fixed-link {
+  position: fixed;
+  top: 0;
+}
+
+@keyframes make-visible {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
