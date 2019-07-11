@@ -78,7 +78,7 @@ body {
 }
 
 #not-visible {
-  animation: runAway 400ms linear;
+  animation: runAway 600ms linear;
   animation-fill-mode: forwards;
 }
 
