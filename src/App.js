@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import VideoPage from './components/VideoPage'
 import Main from './components/Main'
@@ -18,15 +18,18 @@ function App() {
 })
   return (
     <div className="App">
-          { currentPage !== "video" && <Main
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}/>}
-          { currentPage !== 'main' && <SelectionPage
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}/>}
-          { currentPage === 'video' && <VideoPage
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}/>}
+      { currentPage !== "video" && <Main
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      /> }
+      { currentPage !== 'main' && <SelectionPage
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      /> }
+      { currentPage === 'video' && <VideoPage
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      /> }
     </div>
   );
 }
