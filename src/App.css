@@ -75,6 +75,11 @@ body {
   animation-fill-mode: forwards;
 }
 
+#not-visible {
+  animation: slideOff 400ms linear;
+  animation-fill-mode: forwards;
+}
+
 @keyframes slideOff {
   0% {
     transform: translateY(0);

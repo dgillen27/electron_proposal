@@ -7,6 +7,7 @@ function VideoPage({ setCurrentPage, currentPage, config }) {
   const [video, setVideo] = useState(false);
   const slideDown = useSpring({ transform: 'translate3d(0%, 0, 0)', delay: 300, from: {transform: 'translate3d(0%, -150%, 0)'}})
   const slideDown1 = useSpring({ transform: 'translate3d(0%, 0, 0)', delay: 300, from: {transform: 'translate3d(0%, -150%, 0)'}})
+  const slideDown2 = useSpring({ transform: 'translate3d(0%, 0, 0)', delay: 300, from: {transform: 'translate3d(0%, -150%, 0)'}})
   const opacityChange = useSpring({opacity: 1, delay: 300, from: {opacity: 0}})
   const slideRight = useSpring({ transform: 'translate3d(0%, 0, 0)', delay: 300, from: {transform: 'translate3d(-200%, 0, 0)'}})
   const slideUp = useSpring({ transform: 'translate3d(0%, 0, 0)', delay: 300, from: {transform: 'translate3d(0%, 150%, 0)'}})
@@ -16,10 +17,11 @@ function VideoPage({ setCurrentPage, currentPage, config }) {
   console.log(currentPage);
   return (
     <animated.div className="component"
-      id={currentPage === "video" ? "visible" : "invisible"}
-      style={currentPage === "video" ? "something" : slideDown1}>
-      <div className="video-page">
-        <animated.a style={slideLeft1} onClick={() => setCurrentPage('main')} className="fixed-link" to='/'>No more videos</animated.a>
+      id={currentPage === "video" ? "visible" : "not-visible"}
+      style={currentPage === "video" ? "show" : slideLeft1}>
+      <div className="video-page"
+        id={currentPage === "video" ? "visible" : "not-visible"}>
+        <animated.a style={slideDown2} onClick={() => setCurrentPage('main')} className="fixed-link" to='/'>No more videos</animated.a>
         <animated.div style={opacityChange} className="blue-square"></animated.div>
         <animated.div style={slideDown} className="vertical-one"></animated.div>
         <animated.div style={slideRight} className="horizontal-one"></animated.div>
