@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import VideoPage from './components/VideoPage'
 import Main from './components/Main'
@@ -9,23 +9,26 @@ import SelectionPage from './components/SelectionPage'
 
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('main')
   const { location } = useRouter();
   const transitions = useTransition(location, location => location.pathname, {
     from: { opacity: 0, transform: 'translate3d(50%, 0, 0)' },
     enter: { opacity: 1, transform: 'translate3d(0%, 0, 0)' },
     leave: { opacity: 0, transform: 'translate3d(-50%, 0, 0)' },
 })
-  return transitions.map(({ item, props, key }) => (
+  return (
     <div className="App">
-      <animated.div key={key} style={props}>
-        <Switch location={item}>
-          <Route path='/' exact component={Main} />
-          <Route path='/select' component={SelectionPage}/>
-          <Route path='/vid' component={VideoPage} />
-        </Switch>
-      </animated.div>
+          { currentPage !== "video" && <Main
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}/>}
+          { currentPage !== 'main' && <SelectionPage
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}/>}
+          { currentPage === 'video' && <VideoPage
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}/>}
     </div>
-  ));
+  );
 }
 
 export default App;
