@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
+import electron_video from './electron_video.mp4'
 
 function VideoPage({ setCurrentPage, currentPage, config }) {
 
@@ -16,6 +17,7 @@ function VideoPage({ setCurrentPage, currentPage, config }) {
   const opacity = useSpring({opacity: 1, from: {opacity: 1}})
 
   console.log("video page is rendering");
+  console.log(electron_video);
 
   return (
     <animated.div className="component"
@@ -29,7 +31,10 @@ function VideoPage({ setCurrentPage, currentPage, config }) {
         <animated.div style={slideRight} className="horizontal-one"></animated.div>
         <animated.div style={slideUp} className="vertical-two"></animated.div>
         <animated.div style={slideLeft} className="horizontal-two"></animated.div>
-        { video && <iframe className="video" width="1050" height="525" src="https://www.youtube.com/embed/CSSNP2DudNw?autoplay=0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
+        {/*{ video && <iframe className="video" width="1050" height="525" src="https://www.youtube.com/embed/CSSNP2DudNw?autoplay=0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}*/}
+        <video className="video" width="1050" autoPlay>
+          <source src={electron_video} type="video/mp4" />
+        </video>
       </div>
     </animated.div>
   )
