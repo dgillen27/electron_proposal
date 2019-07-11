@@ -12,8 +12,8 @@ function Main({ currentPage, setCurrentPage}) {
   return (
     <animated.div
       className="component"
-      id={currentPage === "main" ? "visible" : "invisible"}
-      style={currentPage === "main" ? slide : slideOff}>
+      id={currentPage === "main" || currentPage === "starter" ? "visible" : "invisible"}
+      style={currentPage === "main" || currentPage === "starter" ? slide : slideOff}>
       <div className="text-wrapper">
         <a onClick={() => setCurrentPage('selection')}>Go To Selection</a>
       </div>

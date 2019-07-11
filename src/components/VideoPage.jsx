@@ -13,12 +13,14 @@ function VideoPage({ setCurrentPage, currentPage, config }) {
   const slideUp = useSpring({ transform: 'translate3d(0%, 0, 0)', delay: 300, from: {transform: 'translate3d(0%, 150%, 0)'}})
   const slideLeft = useSpring({onRest: () => setVideo(true), delay: 300, transform: 'translate3d(0%, 0, 0)', from: {transform: 'translate3d(200%, 0, 0)'}})
   const slideLeft1 = useSpring({onRest: () => setVideo(true), delay: 350, transform: 'translate3d(0%, 0, 0)', from: {transform: 'translate3d(250%, 0, 0)'}})
+  const opacity = useSpring({opacity: 1, from: {opacity: 1}})
+
   console.log("video page is rendering");
-  console.log(currentPage);
+
   return (
     <animated.div className="component"
       id={currentPage === "video" ? "visible" : "not-visible"}
-      style={currentPage === "video" ? "show" : slideLeft1}>
+      style={currentPage === "video" ? opacity : slideLeft1}>
       <div className="video-page"
         id={currentPage === "video" ? "visible" : "not-visible"}>
         <animated.a style={slideDown2} onClick={() => setCurrentPage('main')} className="fixed-link" to='/'>No more videos</animated.a>

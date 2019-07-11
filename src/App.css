@@ -60,9 +60,11 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* background: white; */
 }
 
 #visible {
+  z-index: 50;
 }
 
 #invisible {
@@ -76,7 +78,7 @@ body {
 }
 
 #not-visible {
-  animation: slideOff 400ms linear;
+  animation: runAway 400ms linear;
   animation-fill-mode: forwards;
 }
 
@@ -90,10 +92,25 @@ body {
   }
 
   100% {
+    transform:  translateY(-150%);
     display: none;
   }
 }
 
+@keyframes runAway {
+  0% {
+    transform: translateX(0);
+  }
+
+  95% {
+    transform:  translateX(-150%);
+  }
+
+  100% {
+    transform:  translateX(-150%);
+    display: none;
+  }
+}
 /* #root > div {
   position: absolute;
   width: 100%;
@@ -233,7 +250,8 @@ a:active {
 .vertical-one {
   height: 675px;
   width: 75px;
-  background: blue;
+  /* background: blue; */
+  background: #00334e;
   grid-column-start: 1;
   grid-row-start: 1;
   /* animation: slide-down 500ms linear; */
@@ -245,12 +263,12 @@ a:active {
 .blue-square {
   height: 75px;
   width: 75px;
-  background: blue;
+  /* background: blue; */
+  background: #00334e;
   grid-column-start: 1;
   grid-row-start: 1;
   /* animation: slide-down 500ms linear; */
   animation-delay: 500ms;
-  /* opacity: 0; */
   animation-fill-mode: forwards;
   z-index: 15;
 }
@@ -272,7 +290,8 @@ a:active {
 
 .horizontal-one {
   width: 1200px;
-  background: green;
+  /* background: green; */
+  background: #145374;
   height: 75px;
   grid-column-start: 1;
   grid-row-start: 9;
@@ -302,7 +321,8 @@ a:active {
 .vertical-two {
   height: 675px;
   width: 75px;
-  background: yellow;
+  /* background: yellow; */
+  background: #5588a3;
   grid-column-start: 16;
   grid-row-start: 1;
   /* opacity: 0; */
@@ -329,7 +349,8 @@ a:active {
 
 .horizontal-two {
   width: 1200px;
-  background: red;
+  /* background: red; */
+  background: #b8b8b8;
   height: 75px;
   grid-column-start: 1;
   grid-row-start: 1;

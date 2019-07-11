@@ -9,7 +9,7 @@ import SelectionPage from './components/SelectionPage'
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('main')
+  const [currentPage, setCurrentPage] = useState('starter')
   const { location } = useRouter();
   const transitions = useTransition(location, location => location.pathname, {
     from: { opacity: 0, transform: 'translate3d(50%, 0, 0)' },
@@ -22,11 +22,11 @@ function App() {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       /> }
-      { currentPage !== 'main' && <SelectionPage
+      { currentPage !== 'main' && currentPage !== 'starter' && <SelectionPage
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       /> }
-      { currentPage === 'video' && <VideoPage
+      { currentPage !== 'selection' && currentPage !== 'starter' && <VideoPage
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       /> }
